@@ -7,14 +7,16 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - npm install
+
   build:
     commands:
-      - echo "Running build..."
-      - npm run build || echo "No build step"
+      - echo "Running build (if any)..."
+      - npm run build || echo "No build script defined"
+
   post_build:
     commands:
-      - echo "Build complete"
-      # Optional: Add your deployment steps here (SSH, SSM, etc.)
+      - echo "Build completed. Preparing for deployment..."
+
 artifacts:
   files:
     - '**/*'
